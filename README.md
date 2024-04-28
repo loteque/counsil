@@ -1,0 +1,1 @@
+![counsel diagram](docs/cousil-diagram.excalidraw.png)
