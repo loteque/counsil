@@ -1,0 +1,109 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.3.32",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "HeavyAttacker",
+            "translation" : [
+                0,
+                0.05074048042297363,
+                -0.5403141379356384
+            ]
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "BezierCurve.006",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 3706,
+            "max" : [
+                0.08158668130636215,
+                0.10628294944763184,
+                0.08158668130636215
+            ],
+            "min" : [
+                -0.08158668130636215,
+                -0.25745752453804016,
+                -0.08158668130636215
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 3706,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 3706,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 20832,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 44472,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 44472,
+            "byteOffset" : 44472,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 29648,
+            "byteOffset" : 88944,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 41664,
+            "byteOffset" : 118592,
+            "target" : 34963
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 160256,
+            "uri" : "HeavyAttacker.bin"
+        }
+    ]
+}

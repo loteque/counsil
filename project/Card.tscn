@@ -1,0 +1,204 @@
+[gd_scene load_steps=5 format=3 uid="uid://dap42e4wllqk"]
+
+[ext_resource type="Script" path="res://Card.gd" id="1_yemsk"]
+[ext_resource type="Texture2D" uid="uid://bc6lkloryb08n" path="res://icon-defender.tres" id="2_wk8jb"]
+[ext_resource type="Texture2D" uid="uid://ddup3eava85tq" path="res://assets/icon-defender.png" id="3_4im5s"]
+[ext_resource type="LabelSettings" uid="uid://b0lmsgyl0jl48" path="res://assets/card_prod_label_settings.tres" id="4_ya82j"]
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(635, 889)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yemsk")
+attack = 1
+defense = 2
+production = 3
+cost = 4
+icon = ExtResource("2_wk8jb")
+allowed_movements = Array[int]([0, 2, 4, 6])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon-defender" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -84.0
+offset_right = 72.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4im5s")
+
+[node name="AttackLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="DefenseLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -232.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "2"
+label_settings = ExtResource("4_ya82j")
+
+[node name="ProductionLabel" type="Label" parent="."]
+offset_right = 142.0
+offset_bottom = 339.0
+text = "0"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="CostLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -97.0
+offset_bottom = 232.0
+grow_horizontal = 0
+text = "1"
+label_settings = ExtResource("4_ya82j")
+
+[node name="ForwardArrow" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 273.0
+offset_top = -772.0
+offset_right = 370.0
+offset_bottom = -540.0
+grow_vertical = 0
+text = "↑"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="ForwardRightArrow" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 502.0
+offset_top = -718.0
+offset_right = 599.0
+offset_bottom = -486.0
+grow_vertical = 0
+rotation = 0.785398
+text = "↑"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="RightArrow" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 619.0
+offset_top = -489.0
+offset_right = 716.0
+offset_bottom = -257.0
+grow_vertical = 0
+rotation = 1.5708
+text = "↑"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="BackRightArrow" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 565.0
+offset_top = -222.0
+offset_right = 662.0
+offset_bottom = 10.0001
+grow_vertical = 0
+rotation = 2.35619
+text = "↑"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="BackArrow" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 362.0
+offset_top = -115.0
+offset_right = 459.0
+offset_bottom = 117.0
+grow_vertical = 0
+rotation = 3.14159
+text = "↑"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="BackLeftArrow" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 137.0
+offset_top = -169.0
+offset_right = 234.0
+offset_bottom = 63.0
+grow_vertical = 0
+rotation = -2.35619
+text = "↑"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="LeftArrow" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = -385.0
+offset_right = 126.0
+offset_bottom = -153.0
+grow_vertical = 0
+rotation = -1.5708
+text = "↑"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1
+
+[node name="ForwardLeftArrow" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = -636.0
+offset_right = 153.0
+offset_bottom = -404.0
+grow_vertical = 0
+rotation = -0.785398
+text = "↑"
+label_settings = ExtResource("4_ya82j")
+horizontal_alignment = 1

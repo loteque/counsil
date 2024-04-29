@@ -1,0 +1,109 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.3.32",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Producer",
+            "translation" : [
+                0,
+                0.05074048042297363,
+                0
+            ]
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "BezierCurve.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 3653,
+            "max" : [
+                0.08158668130636215,
+                0.0017112578498199582,
+                0.08158668130636215
+            ],
+            "min" : [
+                -0.08158668130636215,
+                -0.25745752453804016,
+                -0.08158668130636215
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 3653,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 3653,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 20448,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 43836,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 43836,
+            "byteOffset" : 43836,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 29224,
+            "byteOffset" : 87672,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 40896,
+            "byteOffset" : 116896,
+            "target" : 34963
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 157792,
+            "uri" : "Producer.bin"
+        }
+    ]
+}

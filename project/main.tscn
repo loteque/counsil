@@ -1,0 +1,109 @@
+[gd_scene load_steps=18 format=3 uid="uid://b7847ux2d6lqc"]
+
+[ext_resource type="PackedScene" uid="uid://dyf5nec8g0int" path="res://assets/models/GameBoard.gltf" id="1_3qvop"]
+[ext_resource type="Shader" path="res://checkerboard.gdshader" id="2_81bao"]
+[ext_resource type="PackedScene" uid="uid://bfmpfqipxisqe" path="res://assets/models/Defender.gltf" id="2_ik543"]
+[ext_resource type="PackedScene" uid="uid://cejwn5wwu8o" path="res://assets/models/Attacker.gltf" id="3_iu7bn"]
+[ext_resource type="PackedScene" uid="uid://bsklbqmu2dwa3" path="res://assets/models/HeavyAttacker.gltf" id="4_40ppt"]
+[ext_resource type="PackedScene" uid="uid://cdci0q4u6g0i6" path="res://assets/models/HeavyProducer.gltf" id="5_sogpp"]
+[ext_resource type="PackedScene" uid="uid://c2gb2bl2oeb1j" path="res://assets/models/Producer.gltf" id="6_8g66e"]
+[ext_resource type="PackedScene" uid="uid://dyxq0dblrnssd" path="res://assets/models/Scout.gltf" id="7_mqe24"]
+[ext_resource type="Shader" path="res://car_viewport_shader.gdshader" id="8_5ex70"]
+[ext_resource type="PackedScene" uid="uid://dap42e4wllqk" path="res://Card.tscn" id="9_qaqp5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y1nxx"]
+
+[sub_resource type="Sky" id="Sky_0npf1"]
+sky_material = SubResource("ProceduralSkyMaterial_y1nxx")
+
+[sub_resource type="Environment" id="Environment_7thxu"]
+background_mode = 2
+sky = SubResource("Sky_0npf1")
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xabx"]
+render_priority = 0
+shader = ExtResource("2_81bao")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8dfit"]
+size = Vector3(1, 0.01, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v0mtq"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltp37"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_5ex70")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_v0mtq")
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7thxu")
+
+[node name="GameBoardStaticBody" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.221048, -0.241687)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="GameBoardStaticBody"]
+size = Vector3(1, 0.01, 1)
+material = SubResource("ShaderMaterial_6xabx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameBoardStaticBody"]
+shape = SubResource("BoxShape3D_8dfit")
+
+[node name="GameBoard" parent="." instance=ExtResource("1_3qvop")]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.652363, 0.757907, 0, -0.757907, 0.652363, 0.821703, 1.21655, 0.932221)
+current = true
+fov = 35.0
+
+[node name="Defender" parent="." instance=ExtResource("2_ik543")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366461, 0, 0.780437)
+
+[node name="HeavyAttacker" parent="." instance=ExtResource("4_40ppt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0779428, 0, 0.495999)
+
+[node name="HeavyProducer" parent="." instance=ExtResource("5_sogpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340114, 0, 0.162971)
+
+[node name="Producer" parent="." instance=ExtResource("6_8g66e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0850282, 0, -0.283428)
+
+[node name="Scout" parent="." instance=ExtResource("7_mqe24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191314, 0, -0.177143)
+
+[node name="Attacker2" parent="." instance=ExtResource("3_iu7bn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13065, 0, 0.213324)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.874092, 0, -0.0985925)
+size = Vector3(0.889, 0.01, 0.638)
+material = SubResource("ShaderMaterial_ltp37")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.907313, 0, -0.0985925)
+size = Vector3(0.889, 0.01, 0.638)
+material = SubResource("ShaderMaterial_ltp37")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.874092, 0, -0.0985925)
+size = Vector3(0.889, 0.01, 0.638)
+material = SubResource("ShaderMaterial_ltp37")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.926443, 0.00898498, -0.0985925)
+size = Vector3(0.889, 0.01, 0.638)
+material = SubResource("ShaderMaterial_ltp37")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+size = Vector2i(635, 889)
+
+[node name="Card" parent="SubViewport" instance=ExtResource("9_qaqp5")]
+
+[node name="StaticBodyPiece" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBodyPiece"]
