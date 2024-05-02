@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://be6h4mdbpytud"]
+
+[ext_resource type="Script" path="res://CardResource.gd" id="1_tfxvv"]
+[ext_resource type="Image" uid="uid://ci7evweaa62dr" path="res://assets/icons/icon-heavy-producer.png" id="1_yj1ci"]
+
+[resource]
+script = ExtResource("1_tfxvv")
+attack = 0
+defense = 1
+production = 2
+cost = 0
+icon_img = ExtResource("1_yj1ci")
+allowed_movements = Array[int]([0, 1, 2, 3, 4, 5, 6, 7])

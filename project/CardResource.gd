@@ -1,6 +1,6 @@
 extends Resource
 
-class_name card_resource
+class_name CardResource
 
 enum Direction {
 	FORWARD,
@@ -17,5 +17,7 @@ enum Direction {
 @export var defense: int
 @export var production: int
 @export var cost: int
-@export var icon: ImageTexture
+@export var icon_img: Image
+@export var icon2: ImageTexture
+@export var icon3: Texture2D
 @export var allowed_movements: Array[Direction]

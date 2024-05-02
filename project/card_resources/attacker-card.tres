@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://7jx8vg2mt0mm"]
+
+[ext_resource type="Texture2D" uid="uid://c7luxin0ftjqc" path="res://assets/icons/second-icon-attacker.tres" id="1_cco2a"]
+[ext_resource type="Image" uid="uid://dbltxix08764s" path="res://assets/icons/icon-attacker.png" id="1_dw3xq"]
+[ext_resource type="Script" path="res://CardResource.gd" id="2_4fl4g"]
+
+[resource]
+script = ExtResource("2_4fl4g")
+attack = 2
+defense = 1
+production = 0
+cost = 1
+icon_img = ExtResource("1_dw3xq")
+icon2 = ExtResource("1_cco2a")
+allowed_movements = Array[int]([1, 4, 7])

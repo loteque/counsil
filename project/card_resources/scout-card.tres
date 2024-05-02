@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://c7mbrsex3jx66"]
+
+[ext_resource type="Script" path="res://CardResource.gd" id="1_cat3s"]
+[ext_resource type="Image" uid="uid://b6yg1cno8o4hf" path="res://assets/icons/icon-scout.png" id="1_ywxse"]
+
+[resource]
+script = ExtResource("1_cat3s")
+attack = 1
+defense = 1
+production = 0
+cost = 1
+icon_img = ExtResource("1_ywxse")
+allowed_movements = Array[int]([1, 3, 5, 7])

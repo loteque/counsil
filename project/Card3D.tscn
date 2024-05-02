@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbrlc4bwucvr5"]
+
+[ext_resource type="Script" path="res://Card3D.gd" id="1_0xqnu"]
+[ext_resource type="Shader" path="res://car_viewport_shader.gdshader" id="1_cnmc6"]
+[ext_resource type="PackedScene" uid="uid://dap42e4wllqk" path="res://Card.tscn" id="2_o74id"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jtoyj"]
+size = Vector3(0.889, 0.01, 0.638)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v0mtq"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_374wu"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_cnmc6")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_v0mtq")
+
+[node name="Card3D" type="RigidBody3D"]
+script = ExtResource("1_0xqnu")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.874092, 0, -0.0985925)
+shape = SubResource("BoxShape3D_jtoyj")
+
+[node name="Box" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.874092, 0, -0.0985925)
+size = Vector3(0.889, 0.01, 0.638)
+material = SubResource("ShaderMaterial_374wu")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+size = Vector2i(635, 889)
+
+[node name="Card" parent="SubViewport" node_paths=PackedStringArray("card_resource_src") instance=ExtResource("2_o74id")]
+card_resource_src = NodePath("../..")

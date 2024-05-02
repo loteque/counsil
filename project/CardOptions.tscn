@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg4cour2j03yl"]
+
+[ext_resource type="PackedScene" uid="uid://dap42e4wllqk" path="res://Card.tscn" id="1_0ys7k"]
+[ext_resource type="Resource" uid="uid://b0c7dr7bavuhr" path="res://card_resources/defender-card.tres" id="2_30s13"]
+[ext_resource type="Resource" uid="uid://7jx8vg2mt0mm" path="res://card_resources/attacker-card.tres" id="3_ea5qg"]
+[ext_resource type="Resource" uid="uid://cy56hgyjayhku" path="res://card_resources/heavy-attacker-card.tres" id="4_5rchy"]
+[ext_resource type="Resource" uid="uid://be6h4mdbpytud" path="res://card_resources/heavy-producer-card.tres" id="5_eqen8"]
+[ext_resource type="Resource" uid="uid://csyk75hiy8jm3" path="res://card_resources/producer-card.tres" id="6_6vojq"]
+[ext_resource type="Resource" uid="uid://c7mbrsex3jx66" path="res://card_resources/scout-card.tres" id="7_n6lj1"]
+
+[node name="CardOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -891.0
+offset_right = 1000.0
+offset_bottom = 891.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Card" parent="HFlowContainer" instance=ExtResource("1_0ys7k")]
+layout_mode = 2
+card_resource = ExtResource("2_30s13")
+
+[node name="Card2" parent="HFlowContainer" instance=ExtResource("1_0ys7k")]
+layout_mode = 2
+card_resource = ExtResource("3_ea5qg")
+
+[node name="Card3" parent="HFlowContainer" instance=ExtResource("1_0ys7k")]
+layout_mode = 2
+card_resource = ExtResource("4_5rchy")
+
+[node name="Card4" parent="HFlowContainer" instance=ExtResource("1_0ys7k")]
+layout_mode = 2
+card_resource = ExtResource("5_eqen8")
+
+[node name="Card5" parent="HFlowContainer" instance=ExtResource("1_0ys7k")]
+layout_mode = 2
+card_resource = ExtResource("6_6vojq")
+
+[node name="Card6" parent="HFlowContainer" instance=ExtResource("1_0ys7k")]
+layout_mode = 2
+card_resource = ExtResource("7_n6lj1")

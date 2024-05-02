@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://b0c7dr7bavuhr"]
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://b0c7dr7bavuhr"]
 
 [ext_resource type="Script" path="res://CardResource.gd" id="1_34uq8"]
-[ext_resource type="Texture2D" uid="uid://bc6lkloryb08n" path="res://icon-defender.tres" id="1_fw13k"]
+[ext_resource type="Image" uid="uid://bjkaha57ut07a" path="res://assets/icons/icon-defender.png" id="1_k5ogq"]
 
 [resource]
 script = ExtResource("1_34uq8")
@@ -9,5 +9,5 @@ attack = 0
 defense = 2
 production = 0
 cost = 1
-icon = ExtResource("1_fw13k")
-allowed_movements = Array[int]([0, 2, 4, 0])
+icon_img = ExtResource("1_k5ogq")
+allowed_movements = Array[int]([0, 2, 4, 6])
