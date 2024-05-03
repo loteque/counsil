@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7847ux2d6lqc"]
+[gd_scene load_steps=25 format=3 uid="uid://b7847ux2d6lqc"]
 
 [ext_resource type="PackedScene" uid="uid://dyf5nec8g0int" path="res://assets/models/GameBoard.gltf" id="1_3qvop"]
 [ext_resource type="Shader" path="res://checkerboard.gdshader" id="2_81bao"]
@@ -12,10 +12,13 @@
 [ext_resource type="Resource" uid="uid://csyk75hiy8jm3" path="res://card_resources/producer-card.tres" id="11_h1yms"]
 [ext_resource type="Resource" uid="uid://7jx8vg2mt0mm" path="res://card_resources/attacker-card.tres" id="11_ikoie"]
 [ext_resource type="PackedScene" uid="uid://cbrlc4bwucvr5" path="res://Card3D.tscn" id="11_kd6a4"]
-[ext_resource type="Resource" uid="uid://b0c7dr7bavuhr" path="res://card_resources/defender-card.tres" id="12_7b45b"]
+[ext_resource type="Resource" uid="uid://b0c7dr7bavuhr" path="res://assets/card_resources/defender-card.tres" id="12_7b45b"]
 [ext_resource type="Shape3D" uid="uid://fbywdbhakeax" path="res://table_shape_mesh.tres" id="12_fvkjg"]
 [ext_resource type="Resource" uid="uid://be6h4mdbpytud" path="res://card_resources/heavy-producer-card.tres" id="13_rlq0j"]
 [ext_resource type="Resource" uid="uid://c7mbrsex3jx66" path="res://card_resources/scout-card.tres" id="14_faepf"]
+[ext_resource type="Script" path="res://Network.gd" id="18_ex2t0"]
+[ext_resource type="Script" path="res://Server.gd" id="19_ip1kx"]
+[ext_resource type="Script" path="res://Client.gd" id="20_mfaf3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y1nxx"]
 
@@ -116,3 +119,12 @@ card_resource = ExtResource("11_h1yms")
 [node name="ScoutCard" parent="CardDeck" instance=ExtResource("11_kd6a4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05378, 0, 0)
 card_resource = ExtResource("14_faepf")
+
+[node name="Network" type="Node" parent="."]
+script = ExtResource("18_ex2t0")
+
+[node name="Server" type="Node" parent="Network"]
+script = ExtResource("19_ip1kx")
+
+[node name="Client" type="Node" parent="Network"]
+script = ExtResource("20_mfaf3")
