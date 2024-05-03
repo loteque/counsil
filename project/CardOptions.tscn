@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bg4cour2j03yl"]
 
 [ext_resource type="PackedScene" uid="uid://dap42e4wllqk" path="res://Card.tscn" id="1_0ys7k"]
-[ext_resource type="Resource" uid="uid://b0c7dr7bavuhr" path="res://card_resources/defender-card.tres" id="2_30s13"]
+[ext_resource type="Resource" uid="uid://b0c7dr7bavuhr" path="res://assets/card_resources/defender-card.tres" id="2_30s13"]
 [ext_resource type="Resource" uid="uid://7jx8vg2mt0mm" path="res://card_resources/attacker-card.tres" id="3_ea5qg"]
 [ext_resource type="Resource" uid="uid://cy56hgyjayhku" path="res://card_resources/heavy-attacker-card.tres" id="4_5rchy"]
 [ext_resource type="Resource" uid="uid://be6h4mdbpytud" path="res://card_resources/heavy-producer-card.tres" id="5_eqen8"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b7847ux2d6lqc"]
+[gd_scene load_steps=32 format=3 uid="uid://b7847ux2d6lqc"]
 
 [ext_resource type="PackedScene" uid="uid://dyf5nec8g0int" path="res://assets/models/GameBoard.gltf" id="1_3qvop"]
 [ext_resource type="Shader" path="res://checkerboard.gdshader" id="2_81bao"]
@@ -6,12 +6,14 @@
 [ext_resource type="Script" path="res://BoardGridMap.gd" id="2_pdc0x"]
 [ext_resource type="PackedScene" uid="uid://cejwn5wwu8o" path="res://assets/models/Attacker.gltf" id="3_iu7bn"]
 [ext_resource type="PackedScene" uid="uid://bsklbqmu2dwa3" path="res://assets/models/HeavyAttacker.gltf" id="4_40ppt"]
+[ext_resource type="PackedScene" uid="uid://cbiy1xdqxitn4" path="res://CardBack.tscn" id="4_awgp7"]
+[ext_resource type="PackedScene" uid="uid://dap42e4wllqk" path="res://Card.tscn" id="4_g5aom"]
 [ext_resource type="Script" path="res://assets/models/GamePiece.gd" id="4_qs8a1"]
 [ext_resource type="PackedScene" uid="uid://cdci0q4u6g0i6" path="res://assets/models/HeavyProducer.gltf" id="5_sogpp"]
 [ext_resource type="PackedScene" uid="uid://c2gb2bl2oeb1j" path="res://assets/models/Producer.gltf" id="6_8g66e"]
+[ext_resource type="Script" path="res://PlayerCardHolder.gd" id="6_oae8x"]
 [ext_resource type="PackedScene" uid="uid://dyxq0dblrnssd" path="res://assets/models/Scout.gltf" id="7_mqe24"]
 [ext_resource type="Resource" uid="uid://cy56hgyjayhku" path="res://card_resources/heavy-attacker-card.tres" id="11_0iagm"]
-[ext_resource type="PackedScene" uid="uid://b6ynsdpxi0tnp" path="res://UI.tscn" id="11_173xf"]
 [ext_resource type="Resource" uid="uid://csyk75hiy8jm3" path="res://card_resources/producer-card.tres" id="11_h1yms"]
 [ext_resource type="Resource" uid="uid://7jx8vg2mt0mm" path="res://card_resources/attacker-card.tres" id="11_ikoie"]
 [ext_resource type="PackedScene" uid="uid://cbrlc4bwucvr5" path="res://Card3D.tscn" id="11_kd6a4"]
@@ -19,6 +21,7 @@
 [ext_resource type="Shape3D" uid="uid://fbywdbhakeax" path="res://table_shape_mesh.tres" id="12_fvkjg"]
 [ext_resource type="Resource" uid="uid://be6h4mdbpytud" path="res://card_resources/heavy-producer-card.tres" id="13_rlq0j"]
 [ext_resource type="Resource" uid="uid://c7mbrsex3jx66" path="res://card_resources/scout-card.tres" id="14_faepf"]
+[ext_resource type="Texture2D" uid="uid://3s1nqn3aquit" path="res://assets/counsil-actionphase-ui-mockup.excalidraw.png" id="17_aioth"]
 [ext_resource type="Script" path="res://Network.gd" id="18_ex2t0"]
 [ext_resource type="Script" path="res://Server.gd" id="19_ip1kx"]
 [ext_resource type="Script" path="res://Client.gd" id="20_mfaf3"]
@@ -63,33 +66,159 @@ cell_size = Vector3(0.25, 0.1, 0.25)
 script = ExtResource("2_pdc0x")
 
 [node name="Defender" parent="GameBoardStaticBody/BoardGridMap" instance=ExtResource("2_ik543")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351706, 0.229517, 1.19439)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366461, 0.211717, 1.02212)
 script = ExtResource("4_qs8a1")
 
 [node name="HeavyAttacker" parent="GameBoardStaticBody/BoardGridMap" instance=ExtResource("4_40ppt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.353556, 0.229169, 0.914733)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0779428, 0.211717, 0.737686)
 
 [node name="HeavyProducer" parent="GameBoardStaticBody/BoardGridMap" instance=ExtResource("5_sogpp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109382, 0.22973, 0.8006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340114, 0.211717, 0.404658)
 
 [node name="Producer" parent="GameBoardStaticBody/BoardGridMap" instance=ExtResource("6_8g66e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122102, 0.22965, 0.381158)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0850282, 0.211717, -0.041741)
 
 [node name="Scout" parent="GameBoardStaticBody/BoardGridMap" instance=ExtResource("7_mqe24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120934, 0.22977, 0.244171)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191314, 0.211717, 0.064544)
 
 [node name="Attacker2" parent="GameBoardStaticBody/BoardGridMap" instance=ExtResource("3_iu7bn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.372124, 0.229555, 0.381879)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13065, 0.211717, 0.455011)
 
 [node name="GameBoard" parent="." instance=ExtResource("1_3qvop")]
 visible = false
 
 [node name="GameCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.509913, 0.860226, 0, -0.860226, 0.509913, 0.071703, 2.6715, 1.61827)
+transform = Transform3D(1, 0, 0, 0, 0.269895, 0.96289, 0, -0.96289, 0.269895, 0.821703, 2.6715, 0.618274)
 current = true
 fov = 31.4539
 
-[node name="UI" parent="GameCamera" instance=ExtResource("11_173xf")]
+[node name="UI" type="Control" parent="GameCamera"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Counsil-actionphase-ui-mockup_excalidraw" type="Sprite2D" parent="GameCamera/UI"]
+visible = false
+self_modulate = Color(0.466181, 0.466181, 0.466181, 1)
+position = Vector2(594, 269)
+scale = Vector2(0.70499, 0.704991)
+texture = ExtResource("17_aioth")
+
+[node name="FullScreenContainer" type="VBoxContainer" parent="GameCamera/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OpponentHBox" type="HBoxContainer" parent="GameCamera/UI/FullScreenContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TurnResourceControl" type="Control" parent="GameCamera/UI/FullScreenContainer/OpponentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GameCamera/UI/FullScreenContainer/OpponentHBox/TurnResourceControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Opponent Content"
+
+[node name="OpponentCards" type="Control" parent="GameCamera/UI/FullScreenContainer/OpponentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.64
+
+[node name="CardHolder" type="HBoxContainer" parent="GameCamera/UI/FullScreenContainer/OpponentHBox/OpponentCards"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+
+[node name="CardBack" parent="GameCamera/UI/FullScreenContainer/OpponentHBox/OpponentCards/CardHolder" instance=ExtResource("4_awgp7")]
+layout_mode = 2
+card_resource = ExtResource("11_ikoie")
+
+[node name="CardBack2" parent="GameCamera/UI/FullScreenContainer/OpponentHBox/OpponentCards/CardHolder" instance=ExtResource("4_awgp7")]
+layout_mode = 2
+card_resource = ExtResource("11_ikoie")
+
+[node name="CardBack3" parent="GameCamera/UI/FullScreenContainer/OpponentHBox/OpponentCards/CardHolder" instance=ExtResource("4_awgp7")]
+layout_mode = 2
+card_resource = ExtResource("11_ikoie")
+
+[node name="CardBack4" parent="GameCamera/UI/FullScreenContainer/OpponentHBox/OpponentCards/CardHolder" instance=ExtResource("4_awgp7")]
+layout_mode = 2
+card_resource = ExtResource("11_ikoie")
+
+[node name="CardBack5" parent="GameCamera/UI/FullScreenContainer/OpponentHBox/OpponentCards/CardHolder" instance=ExtResource("4_awgp7")]
+layout_mode = 2
+card_resource = ExtResource("11_ikoie")
+
+[node name="OpponentDeckDiscard" type="Control" parent="GameCamera/UI/FullScreenContainer/OpponentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MiddleHBox" type="HBoxContainer" parent="GameCamera/UI/FullScreenContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="Label2" type="Label" parent="GameCamera/UI/FullScreenContainer/MiddleHBox"]
+layout_mode = 2
+text = "Middle Content"
+
+[node name="PlayerHBox" type="HBoxContainer" parent="GameCamera/UI/FullScreenContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerDeckDiscard" type="Control" parent="GameCamera/UI/FullScreenContainer/PlayerHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerCards" type="Control" parent="GameCamera/UI/FullScreenContainer/PlayerHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.64
+
+[node name="PlayerCardHolder" type="HBoxContainer" parent="GameCamera/UI/FullScreenContainer/PlayerHBox/PlayerCards"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+script = ExtResource("6_oae8x")
+
+[node name="Card" parent="GameCamera/UI/FullScreenContainer/PlayerHBox/PlayerCards/PlayerCardHolder" instance=ExtResource("4_g5aom")]
+layout_mode = 2
+card_resource = ExtResource("12_7b45b")
+
+[node name="Card3" parent="GameCamera/UI/FullScreenContainer/PlayerHBox/PlayerCards/PlayerCardHolder" instance=ExtResource("4_g5aom")]
+layout_mode = 2
+card_resource = ExtResource("12_7b45b")
+
+[node name="Card2" parent="GameCamera/UI/FullScreenContainer/PlayerHBox/PlayerCards/PlayerCardHolder" instance=ExtResource("4_g5aom")]
+layout_mode = 2
+card_resource = ExtResource("12_7b45b")
+
+[node name="Card4" parent="GameCamera/UI/FullScreenContainer/PlayerHBox/PlayerCards/PlayerCardHolder" instance=ExtResource("4_g5aom")]
+layout_mode = 2
+card_resource = ExtResource("12_7b45b")
+
+[node name="Card5" parent="GameCamera/UI/FullScreenContainer/PlayerHBox/PlayerCards/PlayerCardHolder" instance=ExtResource("4_g5aom")]
+layout_mode = 2
+card_resource = ExtResource("12_7b45b")
+
+[node name="PlayerTurnResourceControl" type="Control" parent="GameCamera/UI/FullScreenContainer/PlayerHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="StaticBodyPiece" type="StaticBody3D" parent="."]
 

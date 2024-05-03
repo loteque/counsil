@@ -30,7 +30,33 @@ enum Direction {
 @onready var left_arrow = $LeftArrow
 @onready var forward_left_arrow = $ForwardLeftArrow
 
+var starting_position: Vector2
+var dragging = false
+var drag_offset = Vector2()
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			print("clicked")
+			if event.pressed:
+				# Start dragging
+				dragging = true
+				starting_position = global_position
+				drag_offset = global_position - get_global_mouse_position()
+				#get_tree().set_input_as_handled()
+			else:
+				dragging = false
+				global_position = starting_position
+				print("undragged")
+				queue_free()
+	elif event is InputEventMouseMotion and dragging:
+		# Handle dragging
+		global_position = get_global_mouse_position() + drag_offset
+		#get_tree().set_input_as_handled()
+		print("Drag")
+
 func _ready():
+	connect("gui_input", _on_gui_input)
 	if card_resource_src and card_resource_src.card_resource:
 		card_resource = card_resource_src.card_resource
 	
