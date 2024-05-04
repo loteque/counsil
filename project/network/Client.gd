@@ -5,7 +5,8 @@ var connection_port
 
 func join():
     var id = _connect_to_server()
-    rpc("message", "client: " + str(id))
+    await get_tree().create_timer(1).timeout
+    rpc("message", "client joined: " + str(id))
 
 func _connect_to_server():
     var peer = ENetMultiplayerPeer.new()

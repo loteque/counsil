@@ -11,8 +11,12 @@ func _launch_server():
     peer.create_server(connection_port)
     get_tree().set_multiplayer(SceneMultiplayer.new(), self.get_path())
     multiplayer.multiplayer_peer = peer
-    return multiplayer.get_unique_id()
+    
 
 @rpc("any_peer", "call_local")
 func message(message_data):
     print(str("-> ", message_data, "\n"))
+
+@rpc("authority", "call_local")
+func get_id():
+    return multiplayer.get_unique_id()

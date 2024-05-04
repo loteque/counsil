@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7qrfwwcnqwq3"]
+
+[ext_resource type="Script" path="res://network/Network.gd" id="1_1dx7n"]
+[ext_resource type="Script" path="res://network/Server.gd" id="2_ye1a3"]
+[ext_resource type="Script" path="res://network/Client.gd" id="3_0xnuv"]
+[ext_resource type="Script" path="res://network/ClientUI.gd" id="4_vu8yo"]
+
+[node name="Network" type="Node"]
+script = ExtResource("1_1dx7n")
+
+[node name="Server" type="Node" parent="."]
+script = ExtResource("2_ye1a3")
+
+[node name="Client" type="Node" parent="."]
+script = ExtResource("3_0xnuv")
+
+[node name="ClientUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_vu8yo")
+
+[node name="MarginContainer" type="MarginContainer" parent="ClientUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Panel" type="Panel" parent="ClientUI/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ClientUI/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Host" type="Button" parent="ClientUI/MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "HOST"
+
+[node name="Join" type="Button" parent="ClientUI/MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "JOIN"
+
+[connection signal="pressed" from="ClientUI/MarginContainer/Panel/VBoxContainer/Host" to="ClientUI" method="_on_host_pressed"]
+[connection signal="pressed" from="ClientUI/MarginContainer/Panel/VBoxContainer/Join" to="ClientUI" method="_on_connect_pressed"]
