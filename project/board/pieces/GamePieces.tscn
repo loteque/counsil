@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnj5vqlgldxrr"]
+
+[ext_resource type="PackedScene" uid="uid://cccx0vk3c5i85" path="res://board/pieces/DefenderGamePiece.tscn" id="1_em6hk"]
+[ext_resource type="PackedScene" uid="uid://dwbit1fsc67d" path="res://board/pieces/HeavyAttackerPiece.tscn" id="2_5khv5"]
+
+[node name="GamePieces" type="Node3D"]
+
+[node name="Defender" parent="." instance=ExtResource("1_em6hk")]
+
+[node name="HeavyAttacker" parent="." instance=ExtResource("2_5khv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.691374)

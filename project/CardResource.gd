@@ -13,6 +13,12 @@ enum Direction {
 	FORWARD_LEFT
 }
 
+var move_grid = [
+	[Direction.FORWARD_LEFT, Direction.FORWARD, Direction.FORWARD_RIGHT],
+	[Direction.LEFT, - 1, Direction.RIGHT],
+	[Direction.BACK_LEFT, Direction.BACK, Direction.BACK_RIGHT]
+]
+
 @export var attack: int
 @export var defense: int
 @export var production: int
@@ -21,3 +27,11 @@ enum Direction {
 @export var icon2: ImageTexture
 @export var icon3: Texture2D
 @export var allowed_movements: Array[Direction]
+
+func get_movement(x: int, y: int):
+	return move_grid[x][y]
+
+func can_move(x, y):
+	if x == 1 and y == 1:
+		return true
+	return get_movement(x, y) in allowed_movements

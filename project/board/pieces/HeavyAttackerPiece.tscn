@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwbit1fsc67d"]
+
+[ext_resource type="PackedScene" uid="uid://bsklbqmu2dwa3" path="res://assets/models/HeavyAttacker.gltf" id="1_yfy23"]
+[ext_resource type="Script" path="res://board/pieces/GamePiece.gd" id="2_j8vge"]
+
+[node name="HeavyAttacker" instance=ExtResource("1_yfy23")]
+script = ExtResource("2_j8vge")
