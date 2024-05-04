@@ -1,7 +1,16 @@
 extends GridMap
 
-var item_script = preload("res://board/pieces/GamePiece.gd")
+var x_min = -2
+var x_max = 1
+var z_min = -2
+var z_max = 1
 
+func is_on_board(pos: Vector3) -> bool:
+	return (x_min <= pos.x and pos.x <= x_max) and (z_min <= pos.z and pos.z <= z_max)
+
+func _ready():
+	var pos = local_to_map(Vector3(0, 0, 0))
+	print(pos)
 #func _process(delta):
 	#if is_being_dragged:  # Assume you have a way to check if the object is being dragged
 		#position = get_global_mouse_position()  # Or however you handle positioning

@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://6hu61a6kifpg"]
+[gd_scene load_steps=9 format=3 uid="uid://b6ynsdpxi0tnp"]
 
-[ext_resource type="PackedScene" path="res://CardBack.tscn" id="2_e706m"]
+[ext_resource type="PackedScene" uid="uid://cbiy1xdqxitn4" path="res://CardBack.tscn" id="2_e706m"]
 [ext_resource type="Resource" uid="uid://7jx8vg2mt0mm" path="res://card_resources/attacker-card.tres" id="3_dt2x4"]
 [ext_resource type="Script" path="res://PlayerCardHolder.gd" id="4_kl7xo"]
 [ext_resource type="PackedScene" uid="uid://dap42e4wllqk" path="res://Card.tscn" id="5_fmtxw"]

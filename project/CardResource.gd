@@ -32,6 +32,8 @@ func get_movement(x: int, y: int):
 	return move_grid[x][y]
 
 func can_move(x, y):
+	if x > 2 or y > 2 or x < 0 or y < 0:
+		return false
 	if x == 1 and y == 1:
 		return true
 	return get_movement(x, y) in allowed_movements

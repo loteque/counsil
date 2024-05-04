@@ -15,12 +15,7 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "Attacker",
-            "translation" : [
-                0,
-                0.05074048042297363,
-                -0.26057326793670654
-            ]
+            "name" : "Attacker"
         }
     ],
     "meshes" : [

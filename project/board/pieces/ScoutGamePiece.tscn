@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://2kitlx3fjosb"]
+
+[ext_resource type="PackedScene" uid="uid://dyxq0dblrnssd" path="res://assets/models/Scout.gltf" id="1_qdcxc"]
+[ext_resource type="Script" path="res://board/pieces/GamePiece.gd" id="2_gtn07"]
+
+[node name="Scout2" instance=ExtResource("1_qdcxc")]
+script = ExtResource("2_gtn07")
+
+[node name="Scout" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

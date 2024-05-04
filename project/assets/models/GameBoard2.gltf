@@ -15,12 +15,32 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "HeavyProducer"
+            "name" : "GameBoard",
+            "scale" : [
+                0.5,
+                1,
+                0.5
+            ],
+            "translation" : [
+                0,
+                -0.2502491772174835,
+                -0.42215022444725037
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Checkerboard_Material.001",
+            "pbrMetallicRoughness" : {
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
         }
     ],
     "meshes" : [
         {
-            "name" : "BezierCurve.005",
+            "name" : "Plane",
             "primitives" : [
                 {
                     "attributes" : {
@@ -28,7 +48,8 @@
                         "NORMAL" : 1,
                         "TEXCOORD_0" : 2
                     },
-                    "indices" : 3
+                    "indices" : 3,
+                    "material" : 0
                 }
             ]
         }
@@ -37,68 +58,68 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 3706,
+            "count" : 25,
             "max" : [
-                0.08158668130636215,
-                0.09320683777332306,
-                0.08158668130636215
+                1,
+                0,
+                1
             ],
             "min" : [
-                -0.08158668130636215,
-                -0.25745752453804016,
-                -0.08158668130636215
+                -1,
+                0,
+                -1
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 3706,
+            "count" : 25,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 3706,
+            "count" : 25,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 20832,
+            "count" : 96,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 44472,
+            "byteLength" : 300,
             "byteOffset" : 0,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 44472,
-            "byteOffset" : 44472,
+            "byteLength" : 300,
+            "byteOffset" : 300,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 29648,
-            "byteOffset" : 88944,
+            "byteLength" : 200,
+            "byteOffset" : 600,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 41664,
-            "byteOffset" : 118592,
+            "byteLength" : 192,
+            "byteOffset" : 800,
             "target" : 34963
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 160256,
-            "uri" : "HeavyProducer.bin"
+            "byteLength" : 992,
+            "uri" : "GameBoard2.bin"
         }
     ]
 }

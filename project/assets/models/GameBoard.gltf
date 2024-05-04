@@ -20,18 +20,13 @@
                 0.5,
                 1,
                 0.5
-            ],
-            "translation" : [
-                0,
-                -0.2502491772174835,
-                -0.42215022444725037
             ]
         }
     ],
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Checkerboard_Material",
+            "name" : "Checkerboard_Material.001",
             "pbrMetallicRoughness" : {
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5

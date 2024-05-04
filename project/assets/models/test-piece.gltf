@@ -15,12 +15,17 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "HeavyProducer"
+            "name" : "Defender",
+            "translation" : [
+                0,
+                0.05074048042297363,
+                -0.8064521551132202
+            ]
         }
     ],
     "meshes" : [
         {
-            "name" : "BezierCurve.005",
+            "name" : "BezierCurve.007",
             "primitives" : [
                 {
                     "attributes" : {
@@ -40,7 +45,7 @@
             "count" : 3706,
             "max" : [
                 0.08158668130636215,
-                0.09320683777332306,
+                0.01847740262746811,
                 0.08158668130636215
             ],
             "min" : [
@@ -98,7 +103,7 @@
     "buffers" : [
         {
             "byteLength" : 160256,
-            "uri" : "HeavyProducer.bin"
+            "uri" : "test-piece.bin"
         }
     ]
 }

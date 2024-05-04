@@ -15,12 +15,7 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "Defender",
-            "translation" : [
-                0,
-                0.05074048042297363,
-                -0.8064521551132202
-            ]
+            "name" : "Defender"
         }
     ],
     "meshes" : [
