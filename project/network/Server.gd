@@ -3,8 +3,8 @@ extends Node
 var connection_port
 
 func host():
-    var id = _launch_server()
-    rpc("message", "server: " + str(id))
+    _launch_server()
+    rpc("message", "server: " + str(multiplayer.get_unique_id()))
 
 func _launch_server():
     var peer = ENetMultiplayerPeer.new()
@@ -16,7 +16,3 @@ func _launch_server():
 @rpc("any_peer", "call_local")
 func message(message_data):
     print(str("-> ", message_data, "\n"))
-
-@rpc("authority", "call_local")
-func get_id():
-    return multiplayer.get_unique_id()
