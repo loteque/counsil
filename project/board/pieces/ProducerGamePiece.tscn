@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://devlhc0ivo1uv"]
+
+[ext_resource type="PackedScene" uid="uid://c2gb2bl2oeb1j" path="res://assets/models/Producer.gltf" id="1_hois2"]
+[ext_resource type="Script" path="res://board/pieces/GamePiece.gd" id="2_httvf"]
+[ext_resource type="Resource" uid="uid://csyk75hiy8jm3" path="res://card_resources/producer-card.tres" id="3_ggcqv"]
+
+[node name="Producer" instance=ExtResource("1_hois2")]
+script = ExtResource("2_httvf")
+card_resource = ExtResource("3_ggcqv")

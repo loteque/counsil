@@ -1,14 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cccx0vk3c5i85"]
+[gd_scene load_steps=4 format=3 uid="uid://cccx0vk3c5i85"]
 
 [ext_resource type="PackedScene" uid="uid://bfmpfqipxisqe" path="res://assets/models/Defender.gltf" id="1_jaxtw"]
 [ext_resource type="Script" path="res://board/pieces/GamePiece.gd" id="2_nwy45"]
-[ext_resource type="Resource" uid="uid://b0c7dr7bavuhr" path="res://card_resources/defender-card.tres" id="3_auqul"]
-[ext_resource type="Script" path="res://board/pieces/TempDefender.gd" id="4_pc0g6"]
+[ext_resource type="Resource" uid="uid://7jx8vg2mt0mm" path="res://card_resources/attacker-card.tres" id="3_hymn8"]
 
 [node name="Defender" instance=ExtResource("1_jaxtw")]
 script = ExtResource("2_nwy45")
-card_resource = ExtResource("3_auqul")
-
-[node name="Defender" parent="." index="0"]
-script = ExtResource("4_pc0g6")
-card_resource = ExtResource("3_auqul")
+card_resource = ExtResource("3_hymn8")

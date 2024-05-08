@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://r4daw1h5h1ak"]
+
+[ext_resource type="PackedScene" uid="uid://cdci0q4u6g0i6" path="res://assets/models/HeavyProducer.gltf" id="1_cuhx2"]
+[ext_resource type="Script" path="res://board/pieces/GamePiece.gd" id="2_nrd3u"]
+[ext_resource type="Resource" uid="uid://be6h4mdbpytud" path="res://card_resources/heavy-producer-card.tres" id="3_f8iod"]
+
+[node name="HeavyProducer2" instance=ExtResource("1_cuhx2")]
+script = ExtResource("2_nrd3u")
+card_resource = ExtResource("3_f8iod")

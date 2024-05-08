@@ -12,11 +12,12 @@ var original_y = 0.0
 var move_limit = Vector2(grid_size.x, grid_size.z)
 var original_position = Vector3.ZERO
 
+var moves_left_this_turn: int = 1
+
 @onready var static_body_3d: StaticBody3D = find_child("StaticBody3D")
-@onready var camera = %GameCamera
+@onready var camera = get_viewport().get_camera_3d()
 
 func _ready():
-	print("Script included")
 	static_body_3d.input_ray_pickable = true
 
 func _input(event):
@@ -33,10 +34,11 @@ func _input(event):
 		var result = space_state.intersect_ray(params)
 		if result and result.collider == static_body_3d:
 			if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-				if event.pressed:
+				if event.pressed and moves_left_this_turn >= 1:
 					start_dragging(event)
 
 func start_dragging(event):
+	GameManager.focus_card.emit(card_resource)
 	dragging = true
 	original_position = global_transform.origin
 	var mouse_position = event.position
@@ -74,25 +76,21 @@ func update_position(delta):
 			var closest_grid_position = find_closest_grid_position(world_position)
 			global_transform.origin = closest_grid_position
 
-# Convert global coordinates to map coordinates
-func global_to_map(world_position: Vector3) -> Vector3:
-	var local_pos = board_grid_map.to_local(world_position)
-	return board_grid_map.local_to_map(local_pos)
-
-# Convert map coordinates back to global coordinates
-func map_to_global(map_position: Vector3) -> Vector3:
-	var local_pos = board_grid_map.map_to_local(map_position)
-	return board_grid_map.to_global(local_pos)
+func is_new_position(new_position: Vector3):
+	var movement = find_closest_grid_position(new_position) - find_closest_grid_position(original_position)
+	if movement == Vector3.ZERO:
+		return false
+	return true
 
 # Function to find the closest grid position based on a world position
 func find_closest_grid_position(world_position: Vector3) -> Vector3:
-	var map_pos = global_to_map(world_position)
-	var original_pos_in_map = global_to_map(original_position)
+	var map_pos = board_grid_map.global_to_map(world_position)
+	var original_pos_in_map = board_grid_map.global_to_map(original_position)
 	var map_translation = original_pos_in_map - map_pos
 	var can_move_here = card_resource.can_move(map_translation.x + 1, map_translation.z + 1)
 
 	if can_move_here and board_grid_map.is_on_board(map_pos):
-		return map_to_global(map_pos)
+		return board_grid_map.map_to_global(map_pos)
 	
 	return original_position
 	
@@ -107,4 +105,6 @@ func find_closest_grid_position(world_position: Vector3) -> Vector3:
 
 func snap_to_grid():
 	var new_pos = find_closest_grid_position(global_transform.origin)
-	global_transform.origin = new_pos
+	if is_new_position(new_pos):
+		global_transform.origin = new_pos
+		moves_left_this_turn -= 1

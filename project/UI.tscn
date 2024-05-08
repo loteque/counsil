@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6ynsdpxi0tnp"]
+[gd_scene load_steps=11 format=3 uid="uid://b6ynsdpxi0tnp"]
 
+[ext_resource type="Script" path="res://RightContent.gd" id="2_ar4cj"]
 [ext_resource type="PackedScene" uid="uid://cbiy1xdqxitn4" path="res://CardBack.tscn" id="2_e706m"]
 [ext_resource type="Resource" uid="uid://7jx8vg2mt0mm" path="res://card_resources/attacker-card.tres" id="3_dt2x4"]
 [ext_resource type="Script" path="res://PlayerCardHolder.gd" id="4_kl7xo"]
@@ -8,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cy56hgyjayhku" path="res://card_resources/heavy-attacker-card.tres" id="7_3qr6k"]
 [ext_resource type="Resource" uid="uid://be6h4mdbpytud" path="res://card_resources/heavy-producer-card.tres" id="8_xxaph"]
 [ext_resource type="Resource" uid="uid://c7mbrsex3jx66" path="res://card_resources/scout-card.tres" id="9_5cvq6"]
+[ext_resource type="Script" path="res://ProductionText.gd" id="10_j0x3g"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -17,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FullScreenContainer" type="VBoxContainer" parent="."]
+[node name="FullScreenContainer" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +28,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="OpponentHBox" type="HBoxContainer" parent="FullScreenContainer"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 170.0
+grow_horizontal = 2
 size_flags_vertical = 3
 
 [node name="TurnResourceControl" type="Control" parent="FullScreenContainer/OpponentHBox"]
@@ -73,17 +82,48 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MiddleHBox" type="HBoxContainer" parent="FullScreenContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.5
+[node name="RightContent" type="Control" parent="FullScreenContainer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -115.0
+offset_right = -196.0
+offset_bottom = -115.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("2_ar4cj")
 
-[node name="Label2" type="Label" parent="FullScreenContainer/MiddleHBox"]
-layout_mode = 2
-text = "Middle Content"
+[node name="CardPreviewContainer" type="Control" parent="FullScreenContainer/RightContent"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+
+[node name="Card" parent="FullScreenContainer/RightContent/CardPreviewContainer" instance=ExtResource("5_fmtxw")]
+visible = false
+card_resource = ExtResource("6_rgsin")
 
 [node name="PlayerHBox" type="HBoxContainer" parent="FullScreenContainer"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -143.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 3
 
 [node name="PlayerDeckDiscard" type="Control" parent="FullScreenContainer/PlayerHBox"]
@@ -126,3 +166,23 @@ card_resource = ExtResource("9_5cvq6")
 [node name="PlayerTurnResourceControl" type="Control" parent="FullScreenContainer/PlayerHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="ProductionInfo" type="HBoxContainer" parent="FullScreenContainer/PlayerHBox/PlayerTurnResourceControl"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 38.0
+offset_right = 213.0
+offset_bottom = 78.0
+
+[node name="ProductionLabel" type="Label" parent="FullScreenContainer/PlayerHBox/PlayerTurnResourceControl/ProductionInfo"]
+layout_mode = 2
+text = "Production"
+
+[node name="ProductionText" type="Label" parent="FullScreenContainer/PlayerHBox/PlayerTurnResourceControl/ProductionInfo"]
+layout_mode = 2
+text = "0"
+script = ExtResource("10_j0x3g")
+
+[node name="EndTurnButton" type="Button" parent="FullScreenContainer/PlayerHBox/PlayerTurnResourceControl/ProductionInfo"]
+layout_mode = 2
+text = "End Turn"

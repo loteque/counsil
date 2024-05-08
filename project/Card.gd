@@ -11,6 +11,9 @@ enum Direction {
 	FORWARD_LEFT
 }
 
+# vertical distace a card is moved to be considered played
+@export var card_play_distance_px: int = 180
+
 @export var card_resource_src: Node
 @export var card_resource: CardResource
 
@@ -38,19 +41,38 @@ func _on_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				focus_card(card_resource)
 				# Start dragging
 				dragging = true
 				starting_position = global_position
 				drag_offset = global_position - get_global_mouse_position()
 				#get_tree().set_input_as_handled()
 			else:
-				dragging = false
-				global_position = starting_position
-				queue_free()
+				release_card()
 	elif event is InputEventMouseMotion and dragging:
 		# Handle dragging
 		global_position = get_global_mouse_position() + drag_offset
 		#get_tree().set_input_as_handled()
+
+func focus_card(card: CardResource):
+	GameManager.focus_card.emit(card)
+
+func can_afford() -> bool:
+	var current_prod = GameManager.get_player_production(GameManager.CURRENT_PLAYER_ID)
+	var prod_cost = card_resource.cost
+	return current_prod >= prod_cost
+
+func release_card():
+	dragging = false
+	var is_play_distance = -(global_position - starting_position).y > card_play_distance_px
+	if is_play_distance and can_afford():
+		play_card()
+	else:
+		put_card_back()
+
+	
+func put_card_back():
+	global_position = starting_position
 
 func _ready():
 	connect("gui_input", _on_gui_input)
@@ -73,3 +95,6 @@ func _ready():
 	
 	Icon.texture = ImageTexture.create_from_image(card_resource.icon_img)
 
+func play_card():
+	GameManager.card_played.emit(card_resource)
+	queue_free()

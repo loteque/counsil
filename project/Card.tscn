@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dap42e4wllqk"]
+[gd_scene load_steps=6 format=3 uid="uid://dap42e4wllqk"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_yemsk"]
+[ext_resource type="Resource" uid="uid://7jx8vg2mt0mm" path="res://card_resources/attacker-card.tres" id="2_rlo5l"]
 [ext_resource type="Texture2D" uid="uid://ddup3eava85tq" path="res://assets/icon-defender.png" id="3_4im5s"]
+[ext_resource type="PackedScene" uid="uid://c0lw3hnjuey3e" path="res://ToolTip.tscn" id="4_5idlc"]
 [ext_resource type="LabelSettings" uid="uid://b0lmsgyl0jl48" path="res://assets/card_prod_label_settings.tres" id="4_ya82j"]
 
 [node name="Card" type="Control"]
@@ -9,6 +11,7 @@ custom_minimum_size = Vector2(635, 889)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_yemsk")
+card_resource = ExtResource("2_rlo5l")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -39,12 +42,22 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
+offset_top = -232.0
+offset_right = 97.0
 grow_vertical = 0
+mouse_filter = 0
 text = "0"
 label_settings = ExtResource("4_ya82j")
 horizontal_alignment = 1
+
+[node name="ToolTip" parent="AttackLabel" node_paths=PackedStringArray("watch_node") instance=ExtResource("4_5idlc")]
+layout_mode = 1
+offset_left = 97.0
+offset_top = 63.0
+offset_right = 97.0
+offset_bottom = 63.0
+watch_node = NodePath("..")
+text = "Attack"
 
 [node name="DefenseLabel" type="Label" parent="."]
 layout_mode = 1
@@ -57,16 +70,36 @@ offset_left = -97.0
 offset_top = -232.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 0
 text = "2"
 label_settings = ExtResource("4_ya82j")
+
+[node name="ToolTip" parent="DefenseLabel" node_paths=PackedStringArray("watch_node") instance=ExtResource("4_5idlc")]
+layout_mode = 1
+offset_left = -234.0
+offset_top = 83.0
+offset_right = -234.0
+offset_bottom = 83.0
+watch_node = NodePath("..")
+text = "Defense"
 
 [node name="ProductionLabel" type="Label" parent="."]
 layout_mode = 0
 offset_right = 142.0
 offset_bottom = 339.0
+mouse_filter = 0
 text = "0"
 label_settings = ExtResource("4_ya82j")
 horizontal_alignment = 1
+
+[node name="ToolTip" parent="ProductionLabel" node_paths=PackedStringArray("watch_node") instance=ExtResource("4_5idlc")]
+layout_mode = 1
+offset_left = 122.0
+offset_top = 88.0
+offset_right = 122.0
+offset_bottom = 88.0
+watch_node = NodePath("..")
+text = "Production"
 
 [node name="CostLabel" type="Label" parent="."]
 layout_mode = 1
@@ -76,8 +109,18 @@ anchor_right = 1.0
 offset_left = -97.0
 offset_bottom = 232.0
 grow_horizontal = 0
+mouse_filter = 0
 text = "1"
 label_settings = ExtResource("4_ya82j")
+
+[node name="ToolTip" parent="CostLabel" node_paths=PackedStringArray("watch_node") instance=ExtResource("4_5idlc")]
+layout_mode = 1
+offset_left = -148.0
+offset_top = 88.0
+offset_right = -148.0
+offset_bottom = 88.0
+watch_node = NodePath("..")
+text = "Cost"
 
 [node name="ForwardArrow" type="Label" parent="."]
 layout_mode = 1
